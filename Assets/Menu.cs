@@ -11,11 +11,6 @@ public class Menu : MonoBehaviour
     public new GameObject[] componenteCanvas1;
     public Canvas canvasLogin;
 
-    void Start()
-    {
-        PlayerPrefs.DeleteAll();
-    }
-
     public void Cadastrar(){
         if(PlayerPrefs.HasKey(login.text + " login")||string.IsNullOrWhiteSpace(login.text)){
            StartCoroutine(MostrarTexto(componenteCanvas1[0]));

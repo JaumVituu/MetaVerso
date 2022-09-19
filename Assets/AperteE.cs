@@ -24,6 +24,7 @@ public class AperteE : MonoBehaviour
             next.SetActive(true);
             Destroy(Box);
             Destroy(gameObject);
+            anima.SetTrigger("Macarena");
         }
     }
     private void OnTriggerEnter(Collider other)
