@@ -17,13 +17,15 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = Input.GetAxis("Mouse X");
-        y = Input.GetAxis("Mouse Y");
-        Deltax += x*Sense;
-        Deltay -= y*Sense;
-        Deltay = Mathf.Clamp(Deltay, -40,40);
+        if(Body.gameObject.GetComponent<movement>().isPaused == false){
+            x = Input.GetAxis("Mouse X");
+            y = Input.GetAxis("Mouse Y");
+            Deltax += x*Sense;
+            Deltay -= y*Sense;
+            Deltay = Mathf.Clamp(Deltay, -40,40);
 
-        transform.localRotation = Quaternion.Euler(Deltay, 0, 0);
-        Body.localRotation = Quaternion.Euler(0, Deltax, 0);
+            transform.localRotation = Quaternion.Euler(Deltay, 0, 0);
+            Body.localRotation = Quaternion.Euler(0, Deltax, 0);
+        } 
     }
 }

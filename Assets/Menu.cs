@@ -11,6 +11,11 @@ public class Menu : MonoBehaviour
     public new GameObject[] componenteCanvas1;
     public Canvas canvasLogin;
 
+    void Start(){
+            PlayerPrefs.DeleteKey("currentSession");
+    }
+        
+
     public void Cadastrar(){
         if(PlayerPrefs.HasKey(login.text + " login")||string.IsNullOrWhiteSpace(login.text)){
            StartCoroutine(MostrarTexto(componenteCanvas1[0]));
@@ -33,6 +38,7 @@ public class Menu : MonoBehaviour
 
     public void Entrar(){
         if(PlayerPrefs.HasKey(login.text + " login") && PlayerPrefs.HasKey(login.text + " senha")){
+            PlayerPrefs.SetString("currentSession", login.text);
             canvasLogin.gameObject.SetActive(false);
             SceneManager.LoadScene("SampleScene");
         }
