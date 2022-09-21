@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PegarLupa : MonoBehaviour
+public class PegarItem : MonoBehaviour
 {
     public GameObject Box;
     public GameObject Lupa;
@@ -16,9 +16,9 @@ public class PegarLupa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Box.active == true && Input.GetKey(KeyCode.G))
         {
-            
             Lupa.SetActive(false);
             Lupa2.SetActive(true);
             Destroy(Box);
